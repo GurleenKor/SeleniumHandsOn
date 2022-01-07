@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/saby/IdeaProjects/SeleniumHandsOn">
+        <classes>
+            <class name="TestFiles.TestSetup">
+                <methods>
+                    <include name="loginTest"/>
+
+                    <include name="verifyWithoutAddingCredential"/>
+                </methods>
+            </class>
+
+            <class name="TestFiles.InventoryTest">
+                <methods>
+                    <include name="verifyFilter"/>
+                </methods>
+            </class>
+
+            <class name="org.example.AppTest">
+                <methods>
+                    <include name="shouldAnswerWithTrue"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
