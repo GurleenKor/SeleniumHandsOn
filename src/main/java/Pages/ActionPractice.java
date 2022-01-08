@@ -62,6 +62,7 @@ Actions builder =new Actions(driver);
 
         seriesOfAction= (Action) builder.sendKeys(searchBox, "Selenium").keyDown(searchButton, Keys.SHIFT).keyUp(searchButton,Keys.SHIFT).build();
      ((org.openqa.selenium.interactions.Action) seriesOfAction).perform();
+     //the built actions are performed by action
     }
 
 
