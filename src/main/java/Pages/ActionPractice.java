@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -15,7 +16,7 @@ import java.time.Duration;
 public class ActionPractice extends BaseClass {
 
 Actions builder =new Actions(driver);
-    WebDriverWait wait= new WebDriverWait (driver, Duration.ofSeconds (10));
+    WebDriverWait wait= new WebDriverWait (driver, Duration.ofSeconds (20));
     @FindBy(xpath="/html/body/nav/div[1]/a/span")
     WebElement dropDown;
 
@@ -45,24 +46,31 @@ Actions builder =new Actions(driver);
 
     public void clickLink() throws InterruptedException
     {
-        Thread.sleep (3000);
-        builder.moveToElement(softwareTestingLink).click();
+        Thread.sleep (6000);
+
+        wait.until (ExpectedConditions.elementToBeClickable (softwareTestingLink));
+        builder.moveToElement(softwareTestingLink).build ().perform ();
     }
 
-    public  void moveToSearchBox()
+    public  void moveToSearchBox() throws InterruptedException
     {
+        Thread.sleep (4000);
+
         wait.until (ExpectedConditions.elementToBeClickable (searchBox));
         builder.moveToElement(searchBox).build().perform();
     }
-    public void searchButton()
+    public void searchButton() throws InterruptedException
 
     {
+        Thread.sleep (8000);
         builder.moveToElement(searchBox).build().perform();
         Action seriesOfAction ;
 
-        seriesOfAction= (Action) builder.sendKeys(searchBox, "Selenium").keyDown(searchButton, Keys.SHIFT).keyUp(searchButton,Keys.SHIFT).build();
-     ((org.openqa.selenium.interactions.Action) seriesOfAction).perform();
-     //the built actions are performed by action
+
+        seriesOfAction=  builder.sendKeys(searchBox, "Selenium").keyDown(searchButton, Keys.SHIFT).keyUp(searchButton,Keys.SHIFT).build();
+        seriesOfAction.perform();
+        Thread.sleep (5000);
+
     }
 
 

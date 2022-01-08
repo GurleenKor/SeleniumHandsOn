@@ -25,6 +25,8 @@ public class ActionTest extends BaseClass {
 
     public void quitBrowser()
     {
+
+
         driver.close ();
         driver.quit ();
 
